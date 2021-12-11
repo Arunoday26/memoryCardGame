@@ -97,10 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('Game Over');
                     flipAllCard();
                     showButton();
-                    // createGrid();
                     timer.value = 60;
                 }
-            }, 100)
+            }, 1000)
         };
         startTimer()
 
@@ -155,10 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
             var card = document.createElement('img');
 
             card.setAttribute('src', 'image/test.png');
-            // card.setAttribute('class' , frontImg);
             card.className = "frontImg";
             card.setAttribute('data-id', i);
-            // card.addEventListener('click', flipCard);
             grid.appendChild(card);
         }
     }
