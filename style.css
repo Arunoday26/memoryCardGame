@@ -27,21 +27,23 @@
 .series {
   border: 1px solid black;
   text-align: center;
-  width: 200px;
+  width: 185px;
 }
-.game-timer {
-  margin: 0.4rem;
+.game-timer , .score {
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 
 .bottom-item {
   justify-content: space-around;
-  padding: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 .btn {
   cursor: pointer;
   display: block;
   border: 1px solid gray;
-  margin: 5px;
+  margin-bottom: 5px;
   width: 100px;
 }
 

@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     showButton();
                     timer.value = 60;
                 }
-            }, 500)
+            }, 1000)
         };
         startTimer()
 
