@@ -81,25 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const imageElements = document.getElementsByClassName('frontImg');
         Array.from(imageElements).forEach((ele) => {
             ele.addEventListener('click', flipCard);
-            showBtn.disabled = true;
+            // showBtn.disabled = true;
         })
-
-
-
         let second = 60;
         let timer = document.querySelector("#timer");
         function startTimer() {
             clearInterval(interval);
             interval = setInterval(function () {
                 timer.value = second--;
-                if (second < 0) {
+                if (second < -1) {
                     clearInterval(interval);
                     alert('Game Over');
                     flipAllCard();
                     showButton();
                     timer.value = 60;
                 }
-            },1000)
+            }, 500)
         };
         startTimer()
 
@@ -159,7 +156,35 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.appendChild(card);
         }
     }
+    function checkProgressForThree() {
+        const cards = document.querySelectorAll('img');
+        const optionOneId = cardsChosenId[0];
+        const optionTwoId = cardsChosenId[1];
+        if (cardsChosen[0] === cardsChosen[1]) {
+            cards[optionOneId].removeEventListener('click', flipCard);
+            cards[optionTwoId].removeEventListener('click', flipCard);
+        } else {
+            cards[optionOneId].setAttribute('src', 'image/test.png');
+            cards[optionTwoId].setAttribute('src', 'image/test.png');
+        }
+    }
 
+    function checkProgressForFour() {
+        const cards = document.querySelectorAll('img');
+        const optionOneId = cardsChosenId[0];
+        const optionTwoId = cardsChosenId[1];
+        const optionThreeId = cardsChosenId[2];
+        if (cardsChosen[0] === cardsChosen[1] && cardsChosen[1] === cardsChosen[2]) {
+
+            cards[optionOneId].removeEventListener('click', flipCard);
+            cards[optionTwoId].removeEventListener('click', flipCard);
+            cards[optionThreeId].removeEventListener('click', flipCard);
+        } else {
+            cards[optionOneId].setAttribute('src', 'image/test.png');
+            cards[optionTwoId].setAttribute('src', 'image/test.png');
+            cards[optionThreeId].setAttribute('src', 'image/test.png');
+        }
+    }
     //check matches of card
     function checkForMatch() {
         const cards = document.querySelectorAll('img');
@@ -285,6 +310,12 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(checkForMatch4, 1000)
             return
         }
+        if (cardsChosen.length === 2) {
+            setTimeout(checkProgressForThree, 800)
+        }
+        if (cardsChosen.length === 3) {
+            setTimeout(checkProgressForFour, 1000)
+        }
     }
 
 
@@ -302,6 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showBtn.addEventListener('click', showButton = () => {
         showBtn.addEventListener('click', () => {
             flipAllCard();
+            clearInterval(interval);
         })
 
     })
