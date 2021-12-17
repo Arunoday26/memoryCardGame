@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const seriesOfTwo = document.querySelector("#series2");
-    const seriesOfThree = document.querySelector("#series3");
-    const seriesOfFour = document.querySelector("#series4");
+    const seriesOfTwo = document.querySelector("#series_two");
+    const seriesOfThree = document.querySelector("#series_three");
+    const seriesOfFour = document.querySelector("#series_four");
     // image option
     let imgArray = [
         {
