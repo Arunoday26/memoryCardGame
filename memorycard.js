@@ -141,15 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let cardsChosenId = [];
     let cardsWon = [];
     let interval;
-
-    // create grid
-
     function createGrid() {
         grid.innerHTML = "";
 
         for (let i = 0; i < 24; i++) {
-            var card = document.createElement('img');
-
+            let card = document.createElement('img');
             card.setAttribute('src', 'image/test.png');
             card.className = "frontImg";
             card.setAttribute('data-id', i);
